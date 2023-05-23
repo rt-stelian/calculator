@@ -10,8 +10,6 @@ let lastValue
 let power = false
 let timer
 let operator
-let lastOperator
-
 
 onOff.addEventListener('click', () => {
   timeToOff()
@@ -21,7 +19,6 @@ onOff.addEventListener('click', () => {
     power = true
   }
   clear()
-
 })
 
 function clear() {
@@ -62,7 +59,6 @@ function calculator(btnValue) {
   const dot = btnValue === '.'
   const equal = btnValue === '=' || btnValue === 'Enter'
   const percent = btnValue === '%'
-
   timeToOff()
 
   if (result.value != '0' && clearBtn) {
@@ -92,10 +88,6 @@ function calculator(btnValue) {
     operator = lastInput
   }
 
-
-
-
-
   if (percent && result.value !== '0' && typeof (lastInput) === 'number') {
     result.value = eval(result.value) / 100;
     lastInput = result.value;
@@ -106,14 +98,11 @@ function calculator(btnValue) {
   }
   if (equal) {
     if (isCalculed) {
-
       try {
         return result.value = eval(`${result.value}${operator}${lastValue}`)
       } catch (error) {
         console.error('Wrong number:', error);
       }
-
-
     }
     if (/[+\-*/]/.test(lastInput)) {
       undoValue()
@@ -126,17 +115,13 @@ function calculator(btnValue) {
   }
 }
 
-
-
 calc.addEventListener('click', (ev) => {
-
   if (result.classList.contains('active')) {
     power = true
   } if (power && ev.target.classList.contains('btn')) {
     calculator(ev.target.innerHTML)
   }
 })
-
 
 undo.addEventListener('click', undoValue)
 
