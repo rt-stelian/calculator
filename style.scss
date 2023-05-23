@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@500&display=swap');
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto;
+}
+
+
+.btn {
+  cursor: pointer;
+  padding: 14px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 22px;
+  background-color: #fb7313;
+  user-select: none;
+  outline: none;
+  transition: .1s;
+
+  &:active {
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    transition: .1s;
+    transform: scale(0.99);
+  }
+}
+
+.calc {
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: 50px;
+  gap: 5px;
+  padding: 15px;
+  background-color: #333333;
+  border-radius: 10% 10% 5px 5px;
+}
+
+.result {
+  font-family: Orbitron;
+  padding: 0 5px;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-align: right;
+  grid-column: 1 / 5;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #5f695f;
+  color: transparent;
+  user-select: none;
+  outline: none;
+  box-shadow: inset 0px 0px 15px rgba(255, 255, 255, 1);
+
+  &.active {
+    animation: anim 1.2s infinite;
+  }
+}
+
+.calc-wrapper {
+  padding: 30px 15px 20px;
+  background-color: #c2ae7b;
+  border-radius: 20px;
+  position: relative;
+}
+
+.on-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 8px;
+  background-color: #505050;
+  padding: 3px;
+  border-radius: 3px;
+  color: #bdbdbd;
+  cursor: pointer;
+  transition: .2s;
+
+  &:active {
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    transition: .1s;
+    transform: scale(0.99);
+  }
+
+  &.active {
+    color: #fff;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+    transition: .2s;
+  }
+}
+
+.operations {
+  background-color: #c0ac7b;
+}
+
+.equal {
+  grid-column: 3/5;
+}
+
+.numbers {
+  background-color: #fff;
+}
+
+@keyframes anim {
+
+  0% {
+    color: #000;
+  }
+
+  10% {
+    color: transparent;
+  }
+
+  60% {
+    color: #000;
+  }
+
+  100% {
+    color: #000;
+  }
+}
